@@ -49,3 +49,4 @@ docker compose up --build
 - Integrar OAuth Google Calendar no serviço Java
 - Integrar API Telegram (webhook/polling) no serviço Python
 - Implementar modo de suspensão/wake em deploy PaaS
+# google-calendar-agentr
