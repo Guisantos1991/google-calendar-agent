@@ -51,3 +51,4 @@ docker compose up --build
 - Implementar modo de suspensão/wake em deploy PaaS
 # google-calendar-agentr
 # google-calendar-agent
+# google-calendar-agent
