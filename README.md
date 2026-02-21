@@ -50,3 +50,4 @@ docker compose up --build
 - Integrar API Telegram (webhook/polling) no serviço Python
 - Implementar modo de suspensão/wake em deploy PaaS
 # google-calendar-agentr
+# google-calendar-agent
