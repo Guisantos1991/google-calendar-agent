@@ -1,25 +1,19 @@
-version: "3.9"
-
 services:
-  calendar-core-java:
-    build:
-      context: ./services/calendar-core-java
-    container_name: calendar-core-java
-    environment:
-      - SERVER_PORT=${JAVA_PORT:-8080}
-      - SPRING_PROFILES_ACTIVE=${PROFILE:-dev}
+  agno-agent:
+    build: ./agnoAgent
     ports:
-      - "${JAVA_PORT:-8080}:8080"
+      - "8000:8000"
+    env_file:
+      - .env
 
-  telegram-agent-py:
-    build:
-      context: ./services/telegram-agent-py
-    container_name: telegram-agent-py
+  bot-api:
+    build: ./calendar-bot-api
+    env_file:
+      - .env
     environment:
-      - PORT=${PYTHON_PORT:-8000}
-      - CALENDAR_CORE_BASE_URL=${CALENDAR_CORE_BASE_URL:-http://calendar-core-java:8080}
-      - DEFAULT_TIMEZONE=${DEFAULT_TIMEZONE:-America/Sao_Paulo}
-    depends_on:
-      - calendar-core-java
+      SERVER_PORT: "8080"
+      TELEGRAM_WEBHOOK_SECRET: "${TELEGRAM_WEBHOOK_SECRET}"
     ports:
-      - "${PYTHON_PORT:-8000}:8000"
+      - "8080:8080"
+    depends_on:
+      - agnoAgent
