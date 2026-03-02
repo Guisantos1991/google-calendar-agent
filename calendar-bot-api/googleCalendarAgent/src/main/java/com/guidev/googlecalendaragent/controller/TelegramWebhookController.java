@@ -30,7 +30,7 @@ public class TelegramWebhookController {
             @RequestHeader(name = "X-Telegram-Bot-Api-Secret-Token", required = false) String secretToken,
             @RequestBody(required = false) Map<String, Object> body
     ) {
-        if (secretToken == null || !secretToken.equals(webhookSecret)) {
+        if (!webhookSecret.equals(secretToken)) {
             return ResponseEntity.status(401).build();
         }
 
@@ -41,9 +41,6 @@ public class TelegramWebhookController {
     public ResponseEntity<String> testSend(@RequestParam(defaultValue = "Novo Teste") String text) {
         if (testChatId == 0) {
             return ResponseEntity.badRequest().body("Chat ID de teste não configurado");
-        }
-        if (text == null || text.isBlank()) {
-            return ResponseEntity.badRequest().body("Texto da mensagem não pode ser vazio");
         }
 
         telegramClient.sendMessage(testChatId, text);

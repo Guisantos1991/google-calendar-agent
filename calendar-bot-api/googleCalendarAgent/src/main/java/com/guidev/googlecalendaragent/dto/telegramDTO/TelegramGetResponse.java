@@ -1,9 +1,11 @@
 package com.guidev.googlecalendaragent.dto.telegramDTO;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public record TelegramGetResponse(
-        boolean ok,
-        List<TelegramUpdate> result
+        @JsonProperty("ok") boolean ok,
+        @JsonProperty("result") List<TelegramUpdate> result
 ) {
 }

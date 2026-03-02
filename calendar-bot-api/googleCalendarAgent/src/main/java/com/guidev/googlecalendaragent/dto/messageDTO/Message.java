@@ -1,9 +1,11 @@
 package com.guidev.googlecalendaragent.dto.messageDTO;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public record Message(
-        long message_id,
-        Chat chat,
-        From from,
-        String text
+        @JsonProperty("message_id") long messageId,
+        @JsonProperty("chat") Chat chat,
+        @JsonProperty("from") From from,
+        @JsonProperty("text") String text
 ) {
 }

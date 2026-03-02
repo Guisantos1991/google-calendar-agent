@@ -9,5 +9,4 @@ public class GoogleCalendarAgentApplication {
     public static void main(String[] args) {
         SpringApplication.run(GoogleCalendarAgentApplication.class, args);
     }
-
 }

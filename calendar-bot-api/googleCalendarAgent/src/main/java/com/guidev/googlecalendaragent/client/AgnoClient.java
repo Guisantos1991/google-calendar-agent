@@ -2,37 +2,47 @@ package com.guidev.googlecalendaragent.client;
 
 import com.guidev.googlecalendaragent.dto.agentDTO.AgentRequest;
 import com.guidev.googlecalendaragent.dto.agentDTO.AgentResponse;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
 import java.time.OffsetDateTime;
 
+
 @Component
 public class AgnoClient {
 
+    private static final Logger log = LoggerFactory.getLogger(AgnoClient.class);
+
     private final RestClient restClient;
 
-    public AgnoClient(RestClient.Builder builder,
-                      @Value("${agno.base-url:http://localhost:8000}") String baseUrl) {
-        this.restClient = builder
-                .baseUrl(baseUrl)
-                .build();
+
+    public AgnoClient(@Qualifier("agnoRestClient") RestClient restClient) {
+        this.restClient = restClient;
     }
 
     public AgentResponse interpret(String userId, String timezone, String message) {
-        AgentRequest req = new AgentRequest(
+        var request = new AgentRequest(
                 userId,
                 timezone,
+                OffsetDateTime.now().toString(),
                 message
         );
+
+        log.debug("Sending request to Agno: userId={}, timezone={}, message={}", userId, timezone, message);
 
         return restClient.post()
                 .uri("/chat")
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(req)
+                .body(request)
                 .retrieve()
                 .body(AgentResponse.class);
+
     }
+
+
 }

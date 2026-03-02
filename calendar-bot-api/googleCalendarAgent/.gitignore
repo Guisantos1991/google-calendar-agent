@@ -12,6 +12,7 @@ target/
 .settings
 .springBeans
 .sts4-cache
+.json
 
 ### IntelliJ IDEA ###
 .idea
@@ -31,3 +32,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Credentials & Secrets ###
+credentials.json
+tokens/
+application-*.yml
+!application.yml
+
