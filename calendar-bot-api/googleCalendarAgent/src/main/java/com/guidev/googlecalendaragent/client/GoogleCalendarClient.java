@@ -3,7 +3,6 @@ package com.guidev.googlecalendaragent.client;
 import com.google.api.client.auth.oauth2.AuthorizationCodeFlow;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
-import com.google.api.client.extensions.java6.auth.oauth2.VerificationCodeReceiver;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
@@ -32,8 +31,7 @@ public class GoogleCalendarClient {
     private static final String APPLICATION_NAME = "Telegram Calendar Bot (MVP)";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
 
-    // Para MVP: só leitura
-    private static final List<String> SCOPES = List.of(CalendarScopes.CALENDAR_READONLY);
+    private static final List<String> SCOPES = List.of(CalendarScopes.CALENDAR);
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
 
     private Calendar calendarService;
@@ -59,7 +57,7 @@ public class GoogleCalendarClient {
                     .build();
 
             var receiver = new LocalServerReceiver.Builder().setPort(8888).setCallbackPath("/Callback").build();
-            Credential credential = new AuthorizationCodeInstalledApp((AuthorizationCodeFlow) flow, receiver).authorize("user");
+            Credential credential = new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
 
             calendarService = new Calendar.Builder(httpTransport, JSON_FACTORY, credential)
                     .setApplicationName(APPLICATION_NAME)
@@ -75,11 +73,32 @@ public class GoogleCalendarClient {
     public List<Event> listToday(String timezoneId) {
         ZoneId zone = ZoneId.of(timezoneId);
         LocalDate today = LocalDate.now(zone);
+        return listBetween(today.atStartOfDay(zone).toInstant(), today.plusDays(1).atStartOfDay(zone).toInstant());
+    }
 
-        ZonedDateTime start = today.atStartOfDay(zone);
-        ZonedDateTime end = today.plusDays(1).atStartOfDay(zone);
+    public List<Event> listTomorrow(String timezoneId) {
+        ZoneId zone = ZoneId.of(timezoneId);
+        LocalDate tomorrow = LocalDate.now(zone).plusDays(1);
+        return listBetween(tomorrow.atStartOfDay(zone).toInstant(), tomorrow.plusDays(1).atStartOfDay(zone).toInstant());
+    }
 
-        return listBetween(start.toInstant(), end.toInstant());
+    public List<Event> listNext(String timezoneId) {
+        ZoneId zone = ZoneId.of(timezoneId);
+        Instant now = Instant.now();
+        ZonedDateTime endOfDay = LocalDate.now(zone).plusDays(1).atStartOfDay(zone);
+        return listBetween(now, endOfDay.toInstant());
+    }
+
+    public List<Event> listNextWeek(String timezoneId) {
+        ZoneId zone = ZoneId.of(timezoneId);
+        LocalDate today = LocalDate.now(zone);
+        return listBetween(today.atStartOfDay(zone).toInstant(), today.plusWeeks(1).atStartOfDay(zone).toInstant());
+    }
+
+    public List<Event> listNextMonth(String timezoneId) {
+        ZoneId zone = ZoneId.of(timezoneId);
+        LocalDate today = LocalDate.now(zone);
+        return listBetween(today.atStartOfDay(zone).toInstant(), today.plusMonths(1).atStartOfDay(zone).toInstant());
     }
 
     private List<Event> listBetween(Instant start, Instant end) {

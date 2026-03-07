@@ -1,8 +1,7 @@
 package com.guidev.googlecalendaragent.client;
 
-import com.guidev.googlecalendaragent.dto.agentDTO.AgentRequest;
-import com.guidev.googlecalendaragent.dto.agentDTO.AgentResponse;
-import lombok.RequiredArgsConstructor;
+import java.time.OffsetDateTime;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,7 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
-import java.time.OffsetDateTime;
+import com.guidev.googlecalendaragent.dto.agentDTO.AgentRequest;
+import com.guidev.googlecalendaragent.dto.agentDTO.AgentResponse;
 
 
 @Component
