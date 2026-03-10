@@ -35,8 +35,10 @@ public class AgentActionDispatcher {
             case "LIST_TODAY" -> handleListToday();
             case "LIST_TOMORROW" -> handleListTomorrow();
             case "LIST_NEXT" -> handleListNext();
-            case "LIST_NEXT_WEEK", "LIST_WEEK" -> handleListNextWeek();
-            case "LIST_NEXT_MONTH", "LIST_MONTH" -> handleListNextMonth();
+            case "LIST_WEEK" -> handleListWeek();
+            case "LIST_NEXT_WEEK" -> handleListNextWeek();
+            case "LIST_MONTH" -> handleListMonth();
+            case "LIST_NEXT_MONTH" -> handleListNextMonth();
             case "HELP" -> handleHelp(response);
             case "ASK_CLARIFY" -> handleAskClarify(response);
             case "CREATE_EVENT" -> handleCreateEvent(response);
@@ -57,8 +59,16 @@ public class AgentActionDispatcher {
         return calendarEventFormatter.buildNextEventsMessage();
     }
 
+    private String handleListWeek() {
+        return calendarEventFormatter.buildWeekEventsMessage();
+    }
+
     private String handleListNextWeek() {
         return calendarEventFormatter.buildNextWeekEventsMessage();
+    }
+
+    private String handleListMonth() {
+        return calendarEventFormatter.buildMonthEventsMessage();
     }
 
     private String handleListNextMonth() {

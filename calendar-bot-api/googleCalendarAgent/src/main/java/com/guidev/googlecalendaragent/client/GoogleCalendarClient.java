@@ -86,23 +86,58 @@ public class GoogleCalendarClient {
         return listBetween(tomorrow.atStartOfDay(zone).toInstant(), tomorrow.plusDays(1).atStartOfDay(zone).toInstant());
     }
 
+    /**
+     * Retorna os próximos 10 compromissos a partir de agora (sem limite de data).
+     */
     public List<Event> listNext(String timezoneId) {
         ZoneId zone = ZoneId.of(timezoneId);
         Instant now = Instant.now();
-        ZonedDateTime endOfDay = LocalDate.now(zone).plusDays(1).atStartOfDay(zone);
-        return listBetween(now, endOfDay.toInstant());
+        Instant farFuture = LocalDate.now(zone).plusYears(1).atStartOfDay(zone).toInstant();
+        return listBetween(now, farFuture);
     }
 
+    /**
+     * Lista eventos da semana atual (segunda a domingo da semana corrente).
+     */
+    public List<Event> listWeek(String timezoneId) {
+        ZoneId zone = ZoneId.of(timezoneId);
+        LocalDate today = LocalDate.now(zone);
+        LocalDate monday = today.with(DayOfWeek.MONDAY);
+        LocalDate nextMonday = monday.plusWeeks(1);
+        return listBetween(monday.atStartOfDay(zone).toInstant(), nextMonday.atStartOfDay(zone).toInstant());
+    }
+
+    /**
+     * Lista eventos da próxima semana (próxima segunda a próximo domingo).
+     */
     public List<Event> listNextWeek(String timezoneId) {
         ZoneId zone = ZoneId.of(timezoneId);
         LocalDate today = LocalDate.now(zone);
-        return listBetween(today.atStartOfDay(zone).toInstant(), today.plusWeeks(1).atStartOfDay(zone).toInstant());
+        LocalDate nextMonday = today.with(DayOfWeek.MONDAY).plusWeeks(1);
+        LocalDate nextNextMonday = nextMonday.plusWeeks(1);
+        return listBetween(nextMonday.atStartOfDay(zone).toInstant(), nextNextMonday.atStartOfDay(zone).toInstant());
     }
 
+    /**
+     * Lista eventos do mês atual (dia 1 ao último dia do mês corrente).
+     */
+    public List<Event> listMonth(String timezoneId) {
+        ZoneId zone = ZoneId.of(timezoneId);
+        LocalDate today = LocalDate.now(zone);
+        LocalDate firstDay = today.withDayOfMonth(1);
+        LocalDate firstDayNextMonth = firstDay.plusMonths(1);
+        return listBetween(firstDay.atStartOfDay(zone).toInstant(), firstDayNextMonth.atStartOfDay(zone).toInstant());
+    }
+
+    /**
+     * Lista eventos do próximo mês (dia 1 ao último dia do próximo mês).
+     */
     public List<Event> listNextMonth(String timezoneId) {
         ZoneId zone = ZoneId.of(timezoneId);
         LocalDate today = LocalDate.now(zone);
-        return listBetween(today.atStartOfDay(zone).toInstant(), today.plusMonths(1).atStartOfDay(zone).toInstant());
+        LocalDate firstDayNextMonth = today.withDayOfMonth(1).plusMonths(1);
+        LocalDate firstDayMonthAfter = firstDayNextMonth.plusMonths(1);
+        return listBetween(firstDayNextMonth.atStartOfDay(zone).toInstant(), firstDayMonthAfter.atStartOfDay(zone).toInstant());
     }
 
     /**
@@ -193,7 +228,7 @@ public class GoogleCalendarClient {
                     .execute();
 
             List<Event> items = events.getItems();
-            return (items != null && !items.isEmpty()) ? items.get(0) : null;
+            return (items != null && !items.isEmpty()) ? items.getFirst() : null;
         } catch (Exception e) {
             log.error("Erro ao buscar evento por nome: {}", e.getMessage(), e);
             throw new RuntimeException("Erro ao buscar evento no Google Calendar: " + e.getMessage(), e);

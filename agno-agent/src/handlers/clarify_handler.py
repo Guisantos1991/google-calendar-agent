@@ -8,7 +8,8 @@ class ClarifyHandler(BaseHandler):
     """Handler para quando não entendemos a intenção."""
 
     DEFAULT_QUESTION = """Não entendi bem. Você quer:
-• Ver sua agenda? (diga "hoje" ou "semana")
+• Ver sua agenda? (ex: "hoje", "amanhã", "semana", "próximos compromissos")
+• Agenda futura? (ex: "semana que vem", "próxima semana", "mês")
 • Criar um evento? (ex: "marcar reunião amanhã 14h")
 • Cancelar algo? (ex: "cancelar reunião X")"""
 

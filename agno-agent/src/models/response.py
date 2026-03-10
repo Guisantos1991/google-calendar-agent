@@ -33,8 +33,16 @@ class AgentResponse(BaseModel):
         return cls(action="LIST_WEEK", confidence=0.85, args={})
 
     @classmethod
+    def list_next_week(cls) -> "AgentResponse":
+        return cls(action="LIST_NEXT_WEEK", confidence=0.85, args={})
+
+    @classmethod
     def list_month(cls) -> "AgentResponse":
         return cls(action="LIST_MONTH", confidence=0.85, args={})
+
+    @classmethod
+    def list_next_month(cls) -> "AgentResponse":
+        return cls(action="LIST_NEXT_MONTH", confidence=0.85, args={})
 
     @classmethod
     def create_event(cls, summary: str, start_time: str, end_time: Optional[str] = None) -> "AgentResponse":
