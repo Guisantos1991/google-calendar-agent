@@ -40,6 +40,7 @@ public class AgentActionDispatcher {
             case "HELP" -> handleHelp(response);
             case "ASK_CLARIFY" -> handleAskClarify(response);
             case "CREATE_EVENT" -> handleCreateEvent(response);
+            case "CANCEL_EVENT" -> handleCancelEvent(response);
             default -> handleUnknown(action, response.confidence());
         };
     }
@@ -74,6 +75,10 @@ public class AgentActionDispatcher {
 
     private String handleCreateEvent(AgentResponse response) {
         return calendarEventFormatter.createEvent(response);
+    }
+
+    private String handleCancelEvent(AgentResponse response) {
+        return calendarEventFormatter.cancelEvent(response);
     }
 
     private String handleUnknown(String action, double confidence) {

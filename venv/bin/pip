@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/guilhermesantos/Documents/VS Code/google-calendar-agent/venv/bin/python3" "$0" "$@"
+'''exec' "/Users/guilhermesantos/Documents/VS Code/google-calendar-agent/venv/bin/python3.13" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
