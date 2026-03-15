@@ -1,6 +1,5 @@
 package com.guidev.googlecalendaragent.client;
 
-import com.google.api.client.auth.oauth2.AuthorizationCodeFlow;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -22,6 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Path;
@@ -37,6 +37,7 @@ public class GoogleCalendarClient {
 
     private static final List<String> SCOPES = List.of(CalendarScopes.CALENDAR);
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
+    private static final String CREDENTIALS_ENV_PATH = "GOOGLE_CREDENTIALS_PATH";
 
     private Calendar calendarService;
 
@@ -46,8 +47,7 @@ public class GoogleCalendarClient {
         try {
             var httpTransport = GoogleNetHttpTransport.newTrustedTransport();
 
-            InputStream in = GoogleCalendarClient.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
-            if (in == null) throw new IllegalStateException("credentials.json não encontrado em src/main/resources");
+            InputStream in = loadCredentialsStream();
 
             GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(
                     JSON_FACTORY,
@@ -72,6 +72,22 @@ public class GoogleCalendarClient {
         } catch (Exception e) {
             throw new RuntimeException("Falha ao inicializar Google Calendar client", e);
         }
+    }
+
+    private InputStream loadCredentialsStream() throws Exception {
+        String credentialsPath = System.getenv(CREDENTIALS_ENV_PATH);
+        if (credentialsPath != null && !credentialsPath.isBlank()) {
+            return new FileInputStream(credentialsPath);
+        }
+
+        InputStream in = GoogleCalendarClient.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
+        if (in == null) {
+            throw new IllegalStateException(
+                    "Arquivo de credenciais não encontrado. Defina GOOGLE_CREDENTIALS_PATH ou crie src/main/resources/credentials.json a partir de credentials.example.json"
+            );
+        }
+
+        return in;
     }
 
     public List<Event> listToday(String timezoneId) {

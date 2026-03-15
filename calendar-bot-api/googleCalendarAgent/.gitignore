@@ -35,7 +35,9 @@ build/
 
 ### Credentials & Secrets ###
 credentials.json
+src/main/resources/credentials.json
 tokens/
+tokens/StoredCredential
 application-*.yml
 !application.yml
-
+!src/main/resources/credentials.example.json

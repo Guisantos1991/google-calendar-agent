@@ -1,5 +1,18 @@
 # Getting Started
 
+### Local Secrets Setup
+
+- Copy `src/main/resources/credentials.example.json` to `src/main/resources/credentials.json` and fill with your real Google OAuth values.
+- Or set `GOOGLE_CREDENTIALS_PATH` pointing to a local credentials JSON outside the repository.
+- Keep `tokens/StoredCredential` local only; this file stores OAuth access and refresh tokens generated at runtime.
+
+### Database Notes
+
+- Flyway migrations in `src/main/resources/db/migration` are the source of truth for schema creation.
+- The canonical table name is `channel_user` (singular).
+- Migration `V5__reconcile_channel_user_table_name.sql` reconciles old `channel_users` naming.
+- Migration `V6__.sql` is idempotent and guarantees `channel_user` plus the unique index exist.
+
 ### Reference Documentation
 
 For further reference, please consider the following sections:
