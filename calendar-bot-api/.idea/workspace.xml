@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9970f0ea-e3bf-4a1e-a305-522891b71d97" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/google-calendar-agent.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../agnoAgent/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../agnoAgent/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/calendar-bot-api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../contracts/openapi-internal.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/architecture.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/quick-test.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/runtime-suspend-mode.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/security.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/src/main/java/com/projetox/calendar/CalendarCoreApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/src/main/java/com/projetox/calendar/api/CalendarController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/src/main/java/com/projetox/calendar/api/OAuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/src/main/java/com/projetox/calendar/api/dto/CreateEventRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/src/main/java/com/projetox/calendar/api/dto/EventResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/src/main/java/com/projetox/calendar/domain/CalendarEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/src/main/java/com/projetox/calendar/service/CalendarService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/src/test/java/com/projetox/calendar/CalendarCoreApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/src/test/java/com/projetox/calendar/api/CalendarControllerIntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/src/test/java/com/projetox/calendar/api/OAuthControllerIntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/src/test/java/com/projetox/calendar/service/CalendarServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/calendar-core-java/src/test/resources/application-test.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/.idea/telegram-agent-py.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/app/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/app/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/app/agent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/app/calendar_client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/app/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/app/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/app/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/app/nlu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/app/telegram_bot.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/app/telegram_runner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../services/telegram-agent-py/requirements.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/Users/guilhermesantos/Documents/VS Code/google-calendar-agent/calendar-bot-api" value="3A1o59iMsbNkCkFPdTTDBmCBFRq" />
+    </persistenceIdMap>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Guisantos1991"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Guisantos1991/google-calendar-agent.git",
+    "accountId": "e71c6ae9-b708-4a5c-aa63-5d148464e687"
+  }
+}]]></component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="3A1o59iMsbNkCkFPdTTDBmCBFRq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.GoogleCalendarAgentApplication.executor": "Run",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/guilhermesantos/Documents/VS Code/google-calendar-agent/calendar-bot-api",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="GoogleCalendarAgentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-24" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="com" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="guidev.com.GoogleCalendarAgentApplication" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9970f0ea-e3bf-4a1e-a305-522891b71d97" name="Changes" comment="" />
+      <created>1771769252099</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1771769252099</updated>
+      <workItem from="1771769253302" duration="361000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>
