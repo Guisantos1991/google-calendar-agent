@@ -270,5 +270,4 @@ public class GoogleCalendarClient {
             throw new RuntimeException("Erro ao listar eventos", e);
         }
     }
-
 }
